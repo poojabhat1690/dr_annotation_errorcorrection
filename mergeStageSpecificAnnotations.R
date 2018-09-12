@@ -162,7 +162,12 @@ allAnnotations$starts = allAnnotations$starts -1
 #valid chromosomes
 chromosomes_mm = paste0("chr",c(1:25,"M"))
 allAnnotations = allAnnotations[is.element(allAnnotations$seqnames, chromosomes_mm),]
+allAnnotations = allAnnotations %>% filter(seqnames != "chrM")
 
+mtTranscripts_rearranged = cbind.data.frame(mtTranscripts$chr,mtTranscripts$start,mtTranscripts$end,mtTranscripts$gid,0,mtTranscripts$strand)
+colnames(mtTranscripts_rearranged) = colnames(allAnnotations)
+allAnnotations = rbind.data.frame(allAnnotations,mtTranscripts_rearranged)
+###### i want to remove the chrM from this (from refSeq annotation) and I want to add the complete list of ensembl MT annotations
 
 ##### i also wany to add here info about mir430 clusters that are we manually annotated... 
 #mir430sites = read.table("//groups/ameres/Pooja/Projects/zebrafishAnnotation/sequencingRun_december2017/analysis/annotation/stageSpecific/outputs/allStagesCombined/pri_mir430.txt",sep="\t",stringsAsFactors = F)
