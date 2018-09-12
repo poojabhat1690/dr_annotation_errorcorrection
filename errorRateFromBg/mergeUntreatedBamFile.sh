@@ -1,0 +1,11 @@
+#!/bin/bash
+
+ml samtools
+
+### merging all unterated files
+samtools merge /clustertmp/pooja/allUntreated.bam combinedFile_CAGCGT.fastq.gz_adapterTrimmed_slamdunk_mapped_filtered.bam combinedFile_GATCAC.fastq.gz_adapterTrimmed_slamdunk_mapped_filtered.bam combinedFile_ACCAGT.fastq.gz_adapterTrimmed_slamdunk_mapped_filtered.bam combinedFile_TGCACG.fastq.gz_adapterTrimmed_slamdunk_mapped_filtered.bam combinedFile_ACATTA.fastq.gz_adapterTrimmed_slamdunk_mapped_filtered.bam combinedFile_GTGTAG.fastq.gz_adapterTrimmed_slamdunk_mapped_filtered.bam combinedFile_CTAGTC.fastq.gz_adapterTrimmed_slamdunk_mapped_filtered.bam combinedFile_TGTGCA.fastq.gz_adapterTrimmed_slamdunk_mapped_filtered.bam combinedFile_TCAGGA.fastq.gz_adapterTrimmed_slamdunk_mapped_filtered.bam
+cd /clustertmp/pooja/ 
+samtools index /clustertmp/pooja/allUntreated.bam 
+
+
+
